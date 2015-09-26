@@ -1,0 +1,25 @@
+CORPUSNAME	baxter
+CORPUSSIZE	140
+DATEEARLIEST	1650
+DATELATEST	1697
+PAGESSHORTEST	1
+PAGESLONGEST	1258
+PAGESTOTAL	33507
+WORDSSHORTEST	858
+WORDSLONGEST	532780
+WORDSTOTAL	4986083
+WORDSUNIQUE	70036
+FREQUENTWORDS	god 65230|may 34500|us 32510|one 31437|church 30329|men 28306|would 27141|man 26623|hath 26209|yet 22972|many 21280|much 20667|chriſt 20084|love 19732|world 19611|make 18478|know 17281|therefore 17169|faith 16088|must 15544|though 15314|good 15283|doth 15163|muſt 15089|things 14996|
+FREQUENTIDEAS	god 65231|one 31438|man 26624|many 21281|love 19733|world 19612|good 15284|life 13768|law 12074|sin 9698|time 9296|nature 8487|duty 7094|death 6759|truth 6689|religion 6483|soul 5993|matter 5631|peace 5093|particular 4830|mind 4676|government 4538|knowledge 4099|evil 4045|cause 3536|
+FREQUENTNAMES	james 567|augustine 148|aquinas 142|plato 128|aristotle 59|plutarch 55|smith 55|bacon 37|hobbes 35|virgil 30|aurelius 29|gilbert 25|plotinus 23|mill 22|epictetus 18|swift 17|apollonius 13|tacitus 12|galen 12|homer 12|gibbon 9|lucretius 7|sterne 7|hippocrates 6|herodotus 4|
+FREQUENTCOLORS	white 302|black 93|red 88|green 54|purple 51|brown 46|orange 9|gray 6|yellow 3|blue 1|
+WORKSHORTEST	A76214
+WORKLONGEST	A26892
+WORKOLDEST	A27017
+WORKNEWEST	A26948
+IDEASMOST	A76214
+IDEASLEAST	A76162
+NAMESMOST	A27037
+NAMESLEAST	A26856
+COLORSMOST	A26888
+COLORSLEAST	A26854

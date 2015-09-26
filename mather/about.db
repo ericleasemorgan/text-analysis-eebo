@@ -1,0 +1,25 @@
+CORPUSNAME	mather
+CORPUSSIZE	8
+DATEEARLIEST	1682
+DATELATEST	1690
+PAGESSHORTEST	4
+PAGESLONGEST	164
+PAGESTOTAL	646
+WORDSSHORTEST	1218
+WORDSLONGEST	17573
+WORDSTOTAL	62270
+WORDSUNIQUE	5820
+FREQUENTWORDS	god 1257|unto 702|us 663|lord 610|may 562|man 492|upon 482|one 437|would 424|let 394|shall 384|time 360|say 351|said 306|things 288|good 275|men 258|every 256|made 232|yet 223|make 208|thing 207|world 204|children 204|many 203|
+FREQUENTIDEAS	god 1258|man 493|one 438|time 361|good 276|world 205|many 204|soul 197|life 172|sin 170|death 146|cause 86|family 75|evil 60|desire 56|art 55|law 53|duty 42|love 41|war 41|peace 39|truth 37|mind 34|wisdom 30|eternity 24|
+FREQUENTNAMES	james 5|homer 4|smith 3|plato 2|aurelius 2|swift 2|milton 1|archimedes 1|augustine 1|aristophanes 1|tacitus 1|newton 1|bacon 1|lavoisier 1|dostoevsky 1|aeschylus 1|descartes 1|galen 1|aquinas 1|aristotle 1|faraday 1|engles 1|euclid 1|plutarch 1|copernicus 1|
+FREQUENTCOLORS	black 18|white 8|orange 5|red 5|blue 4|green 4|gray 2|yellow 2|brown 1|purple 1|
+WORKSHORTEST	A50116
+WORKLONGEST	A50139
+WORKOLDEST	A50154
+WORKNEWEST	A50164
+IDEASMOST	A50162
+IDEASLEAST	A50154
+NAMESMOST	A50154
+NAMESLEAST	A50116
+COLORSMOST	A50116
+COLORSLEAST	A50162

@@ -1,0 +1,25 @@
+CORPUSNAME	shakespeare
+CORPUSSIZE	29
+DATEEARLIEST	1593
+DATELATEST	1684
+PAGESSHORTEST	53
+PAGESLONGEST	916
+PAGESTOTAL	3143
+WORDSSHORTEST	5503
+WORDSLONGEST	415573
+WORDSTOTAL	721741
+WORDSUNIQUE	23105
+FREQUENTWORDS	haue 8899|lord 4352|good 4318|come 4116|king 3588|would 3544|let 3447|enter 3391|loue 3341|well 3327|hath 3228|man 2989|one 2919|like 2819|ile 2703|may 2659|make 2650|doe 2573|vpon 2571|yet 2548|know 2546|sir 2427|vs 2425|giue 2053|shall 1970|
+FREQUENTIDEAS	good 4319|man 2990|one 2920|time 1798|art 1557|death 1438|life 1363|god 1300|world 959|many 859|peace 804|matter 551|nature 516|truth 513|honor 509|law 328|state 327|love 299|war 286|change 260|beauty 231|mind 195|cause 159|desire 152|chance 148|
+FREQUENTNAMES	swift 53|shakespeare 30|locke 26|sterne 19|hume 15|smith 8|galen 7|virgil 6|bacon 5|gilbert 5|mill 5|lucretius 4|aristotle 2|euripides 2|chaucer 2|sophocles 2|homer 2|plato 2|milton 1|archimedes 1|augustine 1|aristophanes 1|tacitus 1|newton 1|lavoisier 1|
+FREQUENTCOLORS	white 285|red 168|gray 82|black 64|yellow 42|purple 31|green 8|orange 6|brown 4|blue 1|
+WORKSHORTEST	A12045
+WORKLONGEST	A11954
+WORKOLDEST	A12045
+WORKNEWEST	A59497
+IDEASMOST	A12034
+IDEASLEAST	A12017
+NAMESMOST	A12034
+NAMESLEAST	A11975
+COLORSMOST	A12045
+COLORSLEAST	A11991

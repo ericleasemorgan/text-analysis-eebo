@@ -1,5 +1,5 @@
 <html>
-<!-- generated from template-search-results.txt -->
+<!-- template-search-results.txt -->
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
 <title>

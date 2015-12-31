@@ -1,0 +1,21 @@
+<html>
+<!-- template-initialize-collection.txt -->
+<head>
+<title>EEBO initialize collection</title>
+</head>
+<body style='margin: 5%; font-size: large'>
+<h1>EEBO initialize collection</h1>
+<p>Given a title and a list of EEBO identifiers saved from the whole of the EEBO collection, this form will initialize the creation of a personalized subset of EEBO. It will ultimately enable you to do "distant reading" and analysis against the collection:</p>
+<form enctype="multipart/form-data" action="./make-everything.cgi" method="post">
+<table style='margin-left: 5%'>
+<tr><td style='text-align: right'>file of identifiers</td><td><input type="file" name="identifiers" /></td></tr>
+<tr><td /><td><input type="submit" /></td></tr>
+</table>
+</form>
+<hr />
+<p style='text-align: right'>
+Eric Lease Morgan &amp; the Text Miners<br />
+December 31, 2015
+</p>
+</body>
+</html>

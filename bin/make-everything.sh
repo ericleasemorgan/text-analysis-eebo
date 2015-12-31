@@ -3,24 +3,32 @@
 # make-everything.sh - one script to rule them all
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# June 13, 2015 - first cut; siphoned off build-corpus to another file
-# June 15, 2015 - saved transform to a separate process
+# June 13, 2015     - first cut; siphoned off build-corpus to another file
+# June 15, 2015     - saved transform to a separate process
+# December 31, 2015 - added call to update-db.sh
 
+
+# configure
+ROOT=/var/www/html/eebo
 
 # get input
 NAME=$1
+IDENTIFIERS=$2
 
 # sanity check; needs additional error checking
-if [ -z $NAME ]; then
+if [ -z $NAME -a -z $IDENTIFIERS ]; then
 
-    echo "Usage: cat <identifiers> | $0 <name>"
+    echo "Usage: $0 <name> <identifiers>"
     exit 1
     
 fi
 
+# initialize
+cd $ROOT
+
 # state #1 - build corpus
 echo "building corpus"
-cat /dev/stdin | ./bin/make-corpus.sh $NAME
+cat $IDENTIFIERS | ./bin/make-corpus.sh $NAME
 
 # transform TEI to HTML; commented out because it takes a long time and requires java
 #echo "transforming TEI to HTML"
@@ -64,7 +72,11 @@ echo "making about page"
 ./bin/make-about.sh $NAME > $NAME/about.db
 ./bin/transform-about2html.py $NAME > $NAME/about.html
 
-# stage 6 - done
+# stage 6 - update list (database) of collections
+echo "updating database"
+./bin/update-db.sh $NAME
+
+# stage 7 - done
 echo "done"
 exit 0
 

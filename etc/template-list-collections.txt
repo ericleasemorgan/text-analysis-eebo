@@ -1,0 +1,18 @@
+<html>
+<!-- template-list-collections.txt -->
+<head>
+<title>EEBO list collections</title>
+</head>
+<body style='margin: 5%; font-size: large'>
+<h1>EEBO list collections</h1>
+<p>You have previously created the following collections:</p>
+<ol>
+##COLLECTIONS##
+</ol>
+<hr />
+<p style='text-align: right'>
+Eric Lease Morgan &amp; the Text Miners<br />
+December 31, 2015
+</p>
+</body>
+</html>

@@ -9,12 +9,11 @@
 # June 15, 2015 - migrated of the XSLT transform
 
 
-# configure
-XML='./xml'
-CMD="wget --no-verbose -O $XML/##OUTPUT## --no-check-certificate https://raw.githubusercontent.com/textcreationpartnership/##KEY##/master/##KEY##.xml"
-
 # get input
 NAME=$1
+
+# configure
+CMD="/usr/bin/wget -t 1 -O xml/##OUTPUT## --no-check-certificate https://raw.githubusercontent.com/textcreationpartnership/##KEY##/master/##KEY##.xml"
 
 # sanity check; needs additional error checking
 if [ -z $NAME ]; then
@@ -42,12 +41,14 @@ while read RECORD; do
 	
 	# get the identifier
 	IDENTIFIER=$( echo "$RECORD" | cut -f1 )
+	echo "  " $IDENTIFIER
 	
 	# check to see if the file was already retrieved
 	if [ ! -f "$XML/$IDENTIFIER.xml" ]; then
 	
 		WGET=$( echo $CMD | sed "s/##KEY##/$IDENTIFIER/g")
 		WGET=$( echo $WGET | sed "s/##OUTPUT##/$IDENTIFIER.xml/g")
+		echo "  " $WGET
 		$WGET
 		
 	fi

@@ -1,0 +1,21 @@
+<html>
+<!-- template-home.txt -->
+<head>
+<title>EEBO Main Menu</title>
+<head>
+<body style='margin: 5%; font-size: large'>
+<h1>EEBO Main Menu</h1>
+<p>This is a text mining interface to personalized "libraries" based on the content of EEBO (Early English Books Online). Using this interface, the reader is empowered to create subsets of EEBO and then apply any number of standard text mining techniques against the subset(s). The ultimate goals of this application are to enable "distant reading" against the subsets and increase the proverbial sphere of knowledge. The menu of options follows:</p>
+<ol>
+<li>explore example collections: <a href="./baxter/">Baxter</a>, <a href="./mather/">Mather</a>, or <a href="./shakespeare/">Shakespeare</a></li>
+<li><a href="./search.cgi">search</a> the EEBO collection</li>
+<li>given a list of identifiers generated from Step #2, <a href="./bin/initialize-collection.cgi">initialize</a> your own collection</li>
+<li><a href="./bin/list-collections.cgi">list and use</a> the collections you have previously created</li>
+</ol>
+<hr />
+<p style='text-align: right'>
+Eric Lease Morgan &amp; the Text Miners<br />
+December 31, 2015
+</p>
+</body>
+</html>

@@ -1,5 +1,7 @@
 <html>
-<head><title>##CORPUSNAME##</title></head>
+<!-- template-about.txt -->
+<head>
+<title>##CORPUSNAME##</title></head>
 <body style='margin: 3%'>
 
 <h1><img align='right' src="./graphs/wordcloud-frequency.png" />##CORPUSNAME##</h1>

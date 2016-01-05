@@ -5,17 +5,18 @@
 </head>
 <body style='margin: 5%; font-size: large'>
 <h1>EEBO initialize collection</h1>
-<p>Given a title and a list of EEBO identifiers saved from the whole of the EEBO collection, this form will initialize the creation of a personalized subset of EEBO. It will ultimately enable you to do "distant reading" and analysis against the collection:</p>
+<p>Given a list of EEBO identifiers saved from the whole of the EEBO collection, this form will initialize the creation of a personalized subset of EEBO. You can create a list of identifiers by <a href="/eebo/search.cgi">searching the collection</a>. It will ultimately enable you to do "distant reading" and analysis against the collection. If you do not have a set of identifiers readily available, then you can download and then submit any of these three lists: 1) <a href="/eebo/etc/catalog-astronomy.txt">astronomy</a>, 2) <a href="/eebo/etc/catalog-lute.txt">lute</a>, or 3) <a href="/eebo/etc/catalog-ballads.txt">ballads</a>.</p>
 <form enctype="multipart/form-data" action="./make-everything.cgi" method="post">
 <table style='margin-left: 5%'>
 <tr><td style='text-align: right'>file of identifiers</td><td><input type="file" name="identifiers" /></td></tr>
 <tr><td /><td><input type="submit" /></td></tr>
 </table>
 </form>
+<p>Please have patience. The process takes about 60 seconds, and even if the process times out, your collection may very well be created anyway.</p>
 <hr />
 <p style='text-align: right'>
 Eric Lease Morgan &amp; the Text Miners<br />
-December 31, 2015
+January 5, 2016
 </p>
 </body>
 </html>

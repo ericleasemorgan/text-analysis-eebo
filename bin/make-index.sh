@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# make-index.sh - create frequency files from the contents of a directory
+# make-index.sh - create plain text and frequency files from the contents of a directory
 
 # Eric Lease Morgan <emorgan@nd.edu>
 # June 8, 2015 - first investigations; bases on HathiTrust work
@@ -19,7 +19,7 @@ if [ -z $NAME ]; then
     
 fi
 
-# process each json file in the given directory
+# process each xml file in the given directory
 echo "indexing and building text files"
 for FILE in $NAME/xml/*.xml
 do
@@ -42,5 +42,5 @@ do
 		cat $FILE | $XML2FREQUENCY -b > $NAME/text/$KEY.txt
 		
 	fi
-	
+		
 done

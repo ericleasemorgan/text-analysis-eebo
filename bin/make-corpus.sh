@@ -26,11 +26,12 @@ fi
 # build the directory structure
 echo "creating directory structure"
 if [ ! -d "$NAME" ];        then mkdir $NAME;        fi
-if [ ! -d "$NAME/xml" ];    then mkdir $NAME/xml;    fi
-if [ ! -d "$NAME/index" ];  then mkdir $NAME/index;  fi
-if [ ! -d "$NAME/text" ];   then mkdir $NAME/text;   fi
-if [ ! -d "$NAME/html" ];   then mkdir $NAME/html;   fi
 if [ ! -d "$NAME/graphs" ]; then mkdir $NAME/graphs; fi
+if [ ! -d "$NAME/html" ];   then mkdir $NAME/html;   fi
+if [ ! -d "$NAME/index" ];  then mkdir $NAME/index;  fi
+if [ ! -d "$NAME/pos" ];    then mkdir $NAME/pos;    fi
+if [ ! -d "$NAME/text" ];   then mkdir $NAME/text;   fi
+if [ ! -d "$NAME/xml" ];    then mkdir $NAME/xml;    fi
 
 # change into the newly created collection
 cd $NAME

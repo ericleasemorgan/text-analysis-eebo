@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 
-# summarize-pos.py - output POS frequencies in a previously create POS file
+# summarize-pos.py - output POS frequencies in a previously created POS file
 
 # Eric Lease Morgan <emorgan@nd.edu>
 # December 15, 2014 - first cut; my seventh python program

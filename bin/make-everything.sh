@@ -6,6 +6,7 @@
 # June 13, 2015     - first cut; siphoned off build-corpus to another file
 # June 15, 2015     - saved transform to a separate process
 # December 31, 2015 - added call to update-db.sh
+# January 18, 2016  - started adding creation of POS files
 
 
 # configure
@@ -37,6 +38,10 @@ cat $IDENTIFIERS | ./bin/make-corpus.sh $NAME
 # stage #2 - create the index
 echo "making index"
 ./bin/make-index.sh $NAME
+
+# create POS files; commented out because it takes a long time
+#echo "making POS files"
+#./bin/transform-xml2pos.sh $NAME
 
 # make dictionary
 echo "making dictionary"

@@ -32,16 +32,16 @@ echo "building corpus"
 cat $IDENTIFIERS | ./bin/make-corpus.sh $NAME
 
 # transform TEI to HTML; commented out because it takes a long time and requires java
-#echo "transforming TEI to HTML"
-#./bin/transform-xml2html.sh $NAME 
+echo "transforming TEI to HTML"
+./bin/transform-xml2html.sh $NAME 
 
 # stage #2 - create the index
 echo "making index"
 ./bin/make-index.sh $NAME
 
 # create POS files; commented out because it takes a long time
-#echo "making POS files"
-#./bin/transform-xml2pos.sh $NAME
+echo "making POS files"
+./bin/transform-xml2pos.sh $NAME
 
 # make dictionary
 echo "making dictionary"

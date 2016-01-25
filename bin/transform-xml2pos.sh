@@ -4,12 +4,15 @@
 
 # Eric Lease Morgan <emorgan@nd.edu>
 # January 18, 2016 - first cut
+# January 25, 2016 - moved created content in collections
 
 
 # configure
-FILE2POS=./bin/file2pos.py
+HOME='/var/www/html/eebo'
+COLLECTIONS='collections'
+FILE2POS="$HOME/bin/file2pos.py"
 POS='pos'
-XML2TEXT=./bin/xml2text.py
+XML2TEXT="$HOME/bin/xml2text.py"
 
 # get input
 NAME=$1
@@ -23,17 +26,17 @@ if [ -z $NAME ]; then
 fi
 
 # process each xml file in the given directory
-for FILE in $NAME/xml/*.xml
+for FILE in $HOME/$COLLECTIONS/$NAME/xml/*.xml
 do
     
     # parse out the KEY and echo
     KEY=$( basename $FILE .xml )
 			
 	# create POS file
-	if [ ! -f "$NAME/pos/$KEY.pos" ]; then
+	if [ ! -f "$HOME/$COLLECTIONS/$NAME/pos/$KEY.pos" ]; then
 	
-		echo "building $NAME/pos/$KEY.pos"
-		cat $FILE | $XML2TEXT | $FILE2POS > $NAME/$POS/$KEY.pos
+		echo "  building $NAME/pos/$KEY.pos"
+		cat $FILE | $XML2TEXT | $FILE2POS > $HOME/$COLLECTIONS/$NAME/$POS/$KEY.pos
 		
 	fi
 	

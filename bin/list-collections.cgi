@@ -4,11 +4,12 @@
 
 # Eric Lease Morgan <emorgan@nd.edu>
 # December 31, 2015 - first investigations
+# January 25, 2016  - moved created content in collections
 
 
 # configure
 DB       = '/var/www/html/eebo/etc/collections.db'
-URL      = 'http://kilgour.library.nd.edu/eebo/'
+URL      = 'http://kilgour.library.nd.edu/eebo/collections/'
 TEMPLATE = '/var/www/html/eebo/etc/template-list-collections.txt'
 
 # require

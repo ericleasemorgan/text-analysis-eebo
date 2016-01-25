@@ -5,14 +5,16 @@
 # Eric Lease Morgan <emorgan@nd.edu>
 # December 28, 2015 - first investigations
 # December 31, 2015 - replace user-supplied title with computer generated title
+# January 25, 2016  - moved created content in collections
 
 
 # configure
 ROOT        = '/var/www/html/eebo'
-LOG         = 'tmp/log.txt'
-IDENTIFIERS = 'tmp/identifiers.txt'
+TMP         = 'tmp/'
 URL         = 'https://kilgour.library.nd.edu/eebo/'
 LENGTH      = 8
+TEMPLATE    = '/var/www/html/eebo/etc/template-make-everything.txt'
+COLLECTIONS = 'collections'
 
 # require
 import cgi
@@ -29,32 +31,35 @@ os.chdir( ROOT )
 input       = cgi.FieldStorage()
 identifiers = input['identifiers'].value
 
-# create a unique title (key) for this collection; see http://stackoverflow.com/questions/2257441/random-string-generation-with-upper-case-letters-and-digits-in-python
-title = os.environ[ 'REMOTE_USER' ] + '-' + ''.join( random.SystemRandom().choice( string.ascii_lowercase + string.digits ) for _ in range( LENGTH ) )
+# create a unique name (key) for this collection; see http://stackoverflow.com/questions/2257441/random-string-generation-with-upper-case-letters-and-digits-in-python
+name = os.environ[ 'REMOTE_USER' ] + '-' + ''.join( random.SystemRandom().choice( string.ascii_lowercase + string.digits ) for _ in range( LENGTH ) )
 
 # save the identifiers to a file
-file = open( IDENTIFIERS, 'w' )
+identifiers_file = ROOT + '/' + TMP + 'identifiers-' + name + '.txt'
+file = open( identifiers_file, 'w' )
 file.write( identifiers )
 file.close()
 
-# echo the input
-print "Content-Type: text/plain"
-print 
-print title
-print identifiers
+# define the log file
+log_file = ROOT + '/' + TMP + 'log-' + name + '.txt'
 
 # build the shell command
-command = "/bin/bash ./bin/make-everything.sh " + title + ' ' + IDENTIFIERS + " &>" + LOG 
-print command
+command = '( /bin/bash /var/www/html/eebo/bin/make-everything.sh ' + name + ' ' + identifiers_file + ' &> ' + log_file + ') &'
 
 # do the work; Danger! Danger! Danger Will Robinson! Intruder alert! Danger! Danger!
 os.system( command )
 
-# echo contents of the log file
-with open( LOG, 'r' ) as input: print input.read()
+# define the URL of the (hopefully) newly created collection
+url = URL + COLLECTIONS + '/' + name + '/'
 
-# echo the location of the newly created collection
-print URL + title
+# slurp up the template; sort of dumb but keeps all templates in one place
+template = open( TEMPLATE, 'r' )
+html     = template.read()
+html     = html.replace( '##URL##',   url )
+html     = html.replace( '##NAME##', name )
 
 # done
+print "Content-Type: text/html"
+print 
+print html
 exit

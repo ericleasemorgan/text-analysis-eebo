@@ -3,15 +3,17 @@
 # catalog2html.py - given the name of a corpus, output a human-readable version of the corpus's catalog
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# June 11, 2015 - first investigations; based on HathiTrust work
-# June 13, 2015 - added pages
+# June 11, 2015    - first investigations; based on HathiTrust work
+# June 13, 2015    - added pages
+# January 25, 2016 - moved created content in collections
 
 
 # configure
 CATALOG  = '/catalog.db'
 HASH     = '''{ "id": "##ID##", "shortTitle": "##SHORTTITLE##", "title": "##TITLE##", "author": "##AUTHOR##", "date": "##DATE##", "language": "##LANGUAGE##", "pagination": "##PAGINATION##", "pages": "##PAGES##", "publisher": "##PUBLISHER##", "subjects": "##SUBJECTS##", "tei": "##TEI##", "html": "##HTML##", "text": "##TEXT##", "words": "##WORDS##", "colors": "##COLORS##", "names": "##NAMES##", "ideas": "##IDEAS##" }, '''
-TEMPLATE = './etc/template-catalog.txt'
+TEMPLATE = '/var/www/html/eebo/etc/template-catalog.txt'
 LENGTH   = 50
+ROOT     = '/var/www/html/eebo/collections'
 
 # require
 import sys
@@ -27,7 +29,7 @@ name = sys.argv[ 1 ]
 
 # open the database
 data  = ''
-with open( name + CATALOG ) as database :
+with open( ROOT + '/' + name + CATALOG ) as database :
 
 	# initialize
 	index = 0

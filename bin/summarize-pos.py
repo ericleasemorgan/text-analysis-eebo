@@ -4,6 +4,7 @@
 
 # Eric Lease Morgan <emorgan@nd.edu>
 # December 15, 2014 - first cut; my seventh python program
+# January 25, 2016  - moved created content in collections
 
 
 # require

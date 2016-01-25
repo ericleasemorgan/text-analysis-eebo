@@ -3,12 +3,13 @@
 # results2html.py - given standard input, output an HTML table of search results
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# June 13, 2015 - first cut; based on HathiTrust work
+# June 13, 2015    - first cut; based on HathiTrust work
+# January 25, 2016 - moved created content in collections
 
 
 # configure
 HASH     = '''{ "id": "##ID##", "shortTitle": "##SHORTTITLE##", "title": "##TITLE##", "author": "##AUTHOR##", "date": "##DATE##", "language": "##LANGUAGE##", "pagination": "##PAGINATION##", "pages": "##PAGES##", "publisher": "##PUBLISHER##", "subjects": "##SUBJECTS##", "tei": "##TEI##", "html": "##HTML##", "text": "##TEXT##", "words": "##WORDS##", "colors": "##COLORS##", "names": "##NAMES##", "ideas": "##IDEAS##", "count": "##COUNT##", "tfidf": "##TFIDF##" }, '''
-TEMPLATE = './etc/template-search-results.txt'
+TEMPLATE = '/var/www/html/eebo/etc/template-search-results.txt'
 
 # require
 import sys

@@ -7,10 +7,14 @@
 # June 15, 2015     - saved transform to a separate process
 # December 31, 2015 - added call to update-db.sh
 # January 18, 2016  - started adding creation of POS files
+# January 25, 2016  - added make-structure.sh, linked logs, moved created content in collections
 
 
 # configure
-ROOT=/var/www/html/eebo
+HTML='https://kilgour.library.nd.edu/eebo'
+HOME='/var/www/html/eebo'
+COLLECTIONS='collections'
+TMP='tmp'
 
 # get input
 NAME=$1
@@ -25,64 +29,85 @@ if [ -z $NAME -a -z $IDENTIFIERS ]; then
 fi
 
 # initialize
-cd $ROOT
+cd $HOME/$COLLECTIONS
 
-# state #1 - build corpus
+# make directory structure
+echo "making directories"
+$HOME/bin/make-structure.sh $NAME
+
+# link the log file, if possible
+if [ -f "$HOME/$TMP/log-$NAME.txt" ]; then
+	ln -s "$HOME/$TMP/log-$NAME.txt" "./$NAME/log.txt"
+fi
+
+# copy identifiers 
+echo "caching identifiers"
+cp $IDENTIFIERS "$NAME/identifiers.txt"
+
+# build corpus
 echo "building corpus"
-cat $IDENTIFIERS | ./bin/make-corpus.sh $NAME
+cat "$HOME/$COLLECTIONS/$NAME/identifiers.txt" | "$HOME/bin/make-corpus.sh" $NAME
 
-# transform TEI to HTML; commented out because it takes a long time and requires java
+# transform TEI to HTML
 echo "transforming TEI to HTML"
-./bin/transform-xml2html.sh $NAME 
+"$HOME/bin/transform-xml2html.sh" $NAME
 
-# stage #2 - create the index
+# create the index
 echo "making index"
-./bin/make-index.sh $NAME
+"$HOME/bin/make-index.sh" $NAME
 
-# create POS files; commented out because it takes a long time
+# create POS files
 echo "making POS files"
-./bin/transform-xml2pos.sh $NAME
+"$HOME/bin/transform-xml2pos.sh" $NAME
 
 # make dictionary
 echo "making dictionary"
-./bin/make-dictionary.py $NAME/index/ > $NAME/dictionary.db
+$HOME/bin/make-dictionary.py $HOME/$COLLECTIONS/$NAME/index/ > $HOME/$COLLECTIONS/$NAME/dictionary.db
 
 # extract unique words
 echo "extracting unique words"
-cat $NAME/dictionary.db | ./bin/make-unique.py  > $NAME/unique.db
+cat $NAME/dictionary.db | ../bin/make-unique.py  > $NAME/unique.db
 
-# stage #3 - create the catalog
+# create the catalog
 echo "building catalog"
-./bin/make-catalog.sh $NAME
+$HOME/bin/make-catalog.sh $NAME
 
-# stage #4 - create sorted numeric reports
+# create sorted numeric reports
 echo "creating numeric reports"
-./bin/calculate-size.sh   $NAME                      | sort -k2 -n -r > $NAME/sizes.db
-./bin/calculate-themes.sh $NAME etc/theme-colors.txt | sort -k2 -g -r > $NAME/calculated-colors.db
-./bin/calculate-themes.sh $NAME etc/theme-names.txt  | sort -k2 -g -r > $NAME/calculated-names.db
-./bin/calculate-themes.sh $NAME etc/theme-ideas.txt  | sort -k2 -g -r > $NAME/calculated-ideas.db
+$HOME/bin/calculate-size.sh   $NAME                      | sort -k2 -n -r > $HOME/$COLLECTIONS/$NAME/sizes.db
+$HOME/bin/calculate-themes.sh $NAME $HOME/etc/theme-colors.txt | sort -k2 -g -r > $HOME/$COLLECTIONS/$NAME/calculated-colors.db
+$HOME/bin/calculate-themes.sh $NAME $HOME/etc/theme-names.txt  | sort -k2 -g -r > $HOME/$COLLECTIONS/$NAME/calculated-names.db
+$HOME/bin/calculate-themes.sh $NAME $HOME/etc/theme-ideas.txt  | sort -k2 -g -r > $HOME/$COLLECTIONS/$NAME/calculated-ideas.db
 
 # create reports, sorted by coefficient: colors, names, ideas
 echo "calculating themes"
-./bin/calculate-themes.py -v $NAME/dictionary.db etc/theme-colors.txt > $NAME/dictionary-colors.db
-./bin/calculate-themes.py -v $NAME/dictionary.db etc/theme-names.txt  > $NAME/dictionary-names.db
-./bin/calculate-themes.py -v $NAME/dictionary.db etc/theme-ideas.txt  > $NAME/dictionary-ideas.db
+$HOME/bin/calculate-themes.py -v $HOME/$COLLECTIONS/$NAME/dictionary.db $HOME/etc/theme-colors.txt > $HOME/$COLLECTIONS/$NAME/dictionary-colors.db
+$HOME/bin/calculate-themes.py -v $HOME/$COLLECTIONS/$NAME/dictionary.db $HOME/etc/theme-names.txt  > $HOME/$COLLECTIONS/$NAME/dictionary-names.db
+$HOME/bin/calculate-themes.py -v $HOME/$COLLECTIONS/$NAME/dictionary.db $HOME/etc/theme-ideas.txt  > $HOME/$COLLECTIONS/$NAME/dictionary-ideas.db
 
-# create charts; R needs to be installed (oops!); commented out so people don't need R, yet
+# create charts; R needs to be installed
 echo "making graphs"
-./bin/make-graphs.sh $NAME
+$HOME/bin/make-graphs.sh $NAME
 
-# state 5 - analyze corpus and create pretty about page
+# analyze corpus and create pretty about page
 echo "making about page"
-./bin/make-about.sh $NAME > $NAME/about.db
-./bin/transform-about2html.py $NAME > $NAME/about.html
+$HOME/bin/make-about.sh $NAME > $NAME/about.db
+$HOME/bin/transform-about2html.py $NAME > $NAME/about.html
 
-# stage 6 - update list (database) of collections
+# update list (database) of collections
 echo "updating database"
-./bin/update-db.sh $NAME
+$HOME/bin/update-db.sh $NAME
 
-# stage 7 - done
-echo "done"
+# all but done
+echo "done -> $HTML/$COLLECTIONS/$NAME/"
+
+# clean up
+if [ -f "../$TMP/log-$NAME.txt" ]; then
+	rm -rf "$NAME/log.txt"
+	cp "../$TMP/log-$NAME.txt" "$NAME/log.txt"
+fi
+
+# quit
 exit 0
 
 

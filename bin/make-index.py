@@ -3,11 +3,12 @@
 # make-index.py - read EEBO TEI files and output word frequencies as well as a "book"
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# June 8, 2015 - first investigations; bases on HathiTrust work
+# June 8, 2015     - first investigations; bases on HathiTrust work
+# January 25, 2016 - moved created content in collections
 
 
 # configure
-STOPWORDS = './etc/stopwords-en.txt'
+STOPWORDS = '/var/www/html/eebo/etc/stopwords-en.txt'
 
 # require
 import operator

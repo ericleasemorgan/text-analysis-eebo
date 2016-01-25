@@ -3,16 +3,17 @@
 # about2html.py - transform an about.db file into an HTML stream
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# June 11, 2015 - first investigations; based on work from HathiTrust
-# June 13, 2015 - added links to tei, html, and re-configured plain text
-# June 20, 2015 - made links to items of interest relative
+# June 11, 2015    - first investigations; based on work from HathiTrust
+# June 13, 2015    - added links to tei, html, and re-configured plain text
+# June 20, 2015    - made links to items of interest relative
+# January 25, 2016 - moved created content in collections
 
 
 # configure
 ABOUT    = '/about.db'
 CATALOG  = '/catalog.db'
 SEARCH   = './search.cgi?q='
-TEMPLATE = './etc/template-about.txt'
+TEMPLATE = '/var/www/html/eebo/etc/template-about.txt'
 XML      = './xml/'
 HTML     = './html/'
 TEXT     = './text/'

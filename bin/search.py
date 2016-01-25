@@ -3,12 +3,14 @@
 # search.py - given a word and an index, return a list of relevancy ranked identifiers whose document contains the word
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# June 13, 2015 - first cut; based on HathiTrust work
+# June 13, 2015    - first cut; based on HathiTrust work
+# January 25, 2016 - moved created content in collections
 
 
 # configure
 DEBUG   = 0
 CATALOG = '/catalog.db'
+COLLECTIONS = '/var/www/html/eebo/collections'
 
 # require
 import glob
@@ -25,7 +27,7 @@ if len( sys.argv ) != 3 :
 
 # get input; sanity check
 query     = sys.argv[ 1 ].lower()
-directory = sys.argv[ 2 ]
+directory = COLLECTIONS + '/' + sys.argv[ 2 ]
 
 # initialize
 total_documents = 0;

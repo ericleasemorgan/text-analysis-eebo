@@ -3,12 +3,15 @@
 # calculate-size.sh - compute the size of all the .db files in a given directory
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# May 18, 2015 - first cut;
-# June 2, 2015 - added sanity checking
+# May 18, 2015     - first cut;
+# June 2, 2015     - added sanity checking
+# January 25, 2016 - moved created content in collections
 
 
 # configure
-SCRIPT=./bin/calculate-size.py
+HOME='/var/www/html/eebo'
+COLLECTIONS='collections'
+SCRIPT=$HOME/bin/calculate-size.py
 
 # get input
 NAME=$1
@@ -20,6 +23,9 @@ if [ -z $NAME ]; then
     exit 1
     
 fi
+
+# make directories relative
+cd $HOME/$COLLECTIONS
 
 # process each .db file in the given directory
 for FILE in $NAME/index/*.db

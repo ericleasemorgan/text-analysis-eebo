@@ -3,16 +3,17 @@
 # cluster.R - given a source directory, output a cluster dendrogram illustrating how the documents are grouped
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# May 26, 2015 - first investigations
-# May 27, 2015 - at the cabin, and got first output
-# June 4, 2015 - moved output to the graphs directory
+# May 26, 2015     - first investigations
+# May 27, 2015     - at the cabin, and got first output
+# June 4, 2015     - moved output to the graphs directory
+# January 25, 2016 - moved created content in collections
 
 
 # configure
 SPARSITY  = 0.5
-COLORS    = './etc/theme-colors.txt'
-NAMES     = './etc/theme-names.txt'
-IDEAS     = './etc/theme-ideas.txt'
+COLORS    = '/var/www/html/eebo/etc/theme-colors.txt'
+NAMES     = '/var/www/html/eebo/etc/theme-names.txt'
+IDEAS     = '/var/www/html/eebo/etc/theme-ideas.txt'
 TEXT      = '/text/'
 GRAPHS    = '/graphs/'
 

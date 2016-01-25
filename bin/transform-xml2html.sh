@@ -3,14 +3,16 @@
 # transform-xml2html.sh - make TEI files (more) human readable
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# June 15, 2015 - first investigations; forked off from make-corpus.sh
+# June 15, 2015    - first investigations; forked off from make-corpus.sh
+# January 25, 2016 - moved created content in collections
 
 
 # configure
+HOME='/var/www/html/eebo'
 HTML='html'
-JAR='./etc/saxon9he.jar'
+JAR="$HOME/etc/saxon9he.jar"
 XML='xml'
-XSL='./etc/xsl/html5/html5.xsl'
+XSL="$HOME/etc/xsl/html5/html5.xsl"
 
 # get input
 NAME=$1
@@ -24,7 +26,7 @@ if [ -z $NAME ]; then
 fi
 
 # process each json file in the given directory
-echo "transforming TEI into HTML"
+echo "Transforming TEI into HTML"
 for SOURCE in $NAME/$XML/*.xml
 do
         
@@ -37,8 +39,8 @@ do
 	if [ ! -f "$OUTPUT" ]; then
 	
 		# do the work
-		echo "Transforming $INPUT to $OUTPUT"
-		java -cp $JAR net.sf.saxon.Transform -s:$SOURCE -xsl:$XSL -o:$OUTPUT
+		echo "  Transforming $INPUT to $OUTPUT"
+		java -Xms2048M -Xmx2048M -cp $JAR net.sf.saxon.Transform -s:$SOURCE -xsl:$XSL -o:$OUTPUT
 	
 	fi
 		

@@ -12,7 +12,7 @@
 <tr><td /><td><input type="submit" /></td></tr>
 </table>
 </form>
-<p>Please have patience. The process takes about 60 seconds, and even if the process times out, your collection may very well be created anyway.</p>
+<p>Please have patience. Depending on the size of your collection, the build process takes from 60 seconds to more than an hour.</p>
 <hr />
 <p style='text-align: right'>
 Eric Lease Morgan &amp; the Text Miners<br />

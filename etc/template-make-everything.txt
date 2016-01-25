@@ -1,0 +1,34 @@
+<html>
+<!-- template-make-everything.txt -->
+<head>
+<title>EEBO making collection</title>
+<base href="##URL##" target="_blank">
+</head>
+<body style='margin: 5%; font-size: large'>
+<h1>EEBO making collection</h1>
+<p>Your collection is in the process of being made. See and then bookmark <a href='##URL##' target='_blank'>##URL##</a>. The process will be complete when you can successfully load the <a href="about.html">about page</a>.</p>
+
+<p>Please have patience. Depending on how many items are in your collection, this build process can take anywhere from less than a minute to more than an hour. Consider all of things  going on. Data is being harvested from the Internet. It is being transformed from its raw format into HTML and plain text. The data is being parsed into words &amp; phrases, and these words &amp; phrases are being counted, tabulated, &amp; made searchable through an index. Parts-of-speech analysis is being done and saved for future reference. Finally, summaries &amp; generalizations are being articulated &amp; illustrated in order to make sense of the corpus and to read it "from a distance".<p>
+
+<p>This does not mean you have to sit in the dark. Instead, you can watch the process as it is being completed. All you have to do is open and then repeatably refresh any of the following pages. For example:</p>
+
+<ul>
+<li>watch your data being harvested and cached in the <a href="xml/">XML</a> directory</li>
+<li>see how your data is being transformed into other formats: <a href="html/">HTML</a>, <a href="text/">plain text</a>, and <a href="pos/">parts-of-speech</a></li>
+<li>examine the <a href="index/">word counts &amp; tabulations</a> from each of your individual data files</li>
+<li>view a dictionary listing <a href="dictionary.db">all of the words</a> in your corpus as well as a dictionary of <a href="unique.db">unique words</a></li>
+<li>get an idea of trends in your data by interpreting the <a href="./graphs/">graphs</a></li>
+<li>for the hard-core, monitor the <a href="log.txt">log file</a></li>
+</ul>
+
+<p>Again, the process will be complete when you can load the <a href="about.html">about page</a>.</p>
+
+<p>Thank you for using this system. We hope it is helpful.</p>
+
+<hr />
+<p style='text-align: right'>
+Eric Lease Morgan &amp; the Text Miners<br />
+January 25, 2016
+</p>
+</body>
+</html>

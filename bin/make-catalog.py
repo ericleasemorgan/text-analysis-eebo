@@ -3,17 +3,18 @@
 # make-catalog.py - create a "catalog" from the selected EEBO XML files
 
 # Eric Lease Morgan <emorgan@nd.edu>
-# June 10, 2015 - first cut; based on work from HathiTrust
-# June 13, 2015 - added count of pages 
-# June 15, 2015 - changed dates so they: 1) exist, and 2) are not ranges
+# June 10, 2015    - first cut; based on work from HathiTrust
+# June 13, 2015    - added count of pages 
+# June 15, 2015    - changed dates so they: 1) exist, and 2) are not ranges
+# January 25, 2016 - moved created content in collections
 
 
 # configure
-DEBUG     = 0
-HTML      = '/html/'
-PLAINTEXT = '/text/'
-ROOT      = 'http://kilgour.library.nd.edu/eebo/'
-XML       = '/xml/'
+DEBUG       = 0
+HTML        = '/html/'
+PLAINTEXT   = '/text/'
+ROOT        = 'http://kilgour.library.nd.edu/eebo/collections/'
+XML         = '/xml/'
 
 # require
 import glob
@@ -34,7 +35,7 @@ name = sys.argv[ 1 ]
 for filename in glob.glob( name + XML + '*.xml' ):
 
 	# open and create a parser against the file
-	sys.stderr.write( filename + '\n' )
+	sys.stderr.write( ' ' + filename + '\n' )
 	tei = libxml2.parseFile( filename )
 	tei = tei.xpathNewContext()
 	tei.xpathRegisterNs( 't', 'http://www.tei-c.org/ns/1.0' )
